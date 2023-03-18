@@ -1,9 +1,6 @@
 import { title } from 'process'
 import React from 'react'
 
-
-
-
 type PropsType = {
     checked: boolean
     title: string
@@ -17,19 +14,20 @@ type TasksType = {
 }
   
 const Todolist = (props: PropsType) => {
+    const todoMapFunc = props.tasks.map((el) => {
+        return (
+        <li>
+            <span>{el.title}</span>
+            <input type='checkbox' checked={el.isDone}></input>
+                           </li>
+                           )})
   return (
     <div>
           <h1>{props.title}</h1>
           <input type="text" />
        <button>+</button>
         <ul>
-            {props.tasks.map((el) => {
-            return (
-            <li>
-                <span>{el.title}</span>
-                <input type='checkbox' checked={el.isDone}></input>
-                               </li>
-                               )})}
+            {todoMapFunc}
          {/* <li><span>{props.tasks[0].title}</span>
           <input type='checkbox' checked={props.tasks[0].isDone}></input>
           </li>
