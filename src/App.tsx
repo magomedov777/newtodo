@@ -1,10 +1,8 @@
-import React from 'react';
-import './App.css';
-import Todolist from './Todolist';
+import React from "react";
+import "./App.css";
+import Todolist from "./Todolist";
 
 function App() {
- 
-  
   const tasks1 = [
     {id: 1, title: 'HTML&CSS', isDone: true},
     {id: 2, title: 'JS', isDone: true},
@@ -17,14 +15,12 @@ function App() {
     {id: 3, title: 'YO', isDone: false}
   ];
 
-  const title = 'New Todolist';
-
   return (
     <div className="App">
-     <Todolist title={title} checked={true} tasks={tasks1}/>
-     <Todolist title={title} checked={false} tasks={tasks2}/>
+      <Todolist title="New Todo" tasks={tasks1} checked={true}/>
+      <Todolist title="Todo" tasks={tasks2} checked={false}/>
     </div>
   );
-};
+}
 
 export default App;
