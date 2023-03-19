@@ -21,9 +21,9 @@ const Todolist = (props: PropsType) => {
           <input type="text" />
            <button>+</button>
             <ul>
-             <li><span>{props.tasks[0].title}</span><input type="checkbox" checked={props.tasks[0].isDone}/></li>
+             {/* <li><span>{props.tasks[0].title}</span><input type="checkbox" checked={props.tasks[0].isDone}/></li>
              <li><span>{props.tasks[1].title}</span><input type="checkbox" checked={props.tasks[1].isDone}/></li>
-             <li><span>{props.tasks[2].title}</span><input type="checkbox" checked={props.tasks[2].isDone}/></li>
+             <li><span>{props.tasks[2].title}</span><input type="checkbox" checked={props.tasks[2].isDone}/></li> */}
             </ul>
            <button>all</button>
            <button>active</button>
