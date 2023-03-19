@@ -4,15 +4,16 @@ import React from 'react'
 
   
 const Todolist = () => {
+  const title = 'New TODOLIST';
     return (
     <div>
-        <h1>New todo</h1>
+        <h1>{title}</h1>
           <input type="text" />
            <button>+</button>
             <ul>
-             <li>HTML</li>
-             <li>JS</li>
-             <li>ReactJS</li>
+             <li><span>HTML</span><input type="checkbox" /></li>
+             <li><span>JS</span><input type="checkbox" /></li>
+             <li><span>ReactJS</span><input type="checkbox" /></li>
             </ul>
            <button>all</button>
            <button>active</button>
