@@ -1,17 +1,7 @@
 import { title } from 'process'
 import React from 'react'
 
-type PropsType = {
-    checked: boolean
-    title: string
-    tasks: TasksType[]
-};
 
-type TasksType = {
-    id: number
-    title: string
-    isDone: boolean
-};
   
 const Todolist = (props: PropsType) => {
     const todoMapFunc = props.tasks.map((el) => {
