@@ -2,26 +2,46 @@ import { title } from "process";
 import React from "react";
 
 type PropsType = {
-  title: string
-  checked: boolean
-}
+  title: string;
+  checked: boolean;
+  tasks: TasksType[];
+};
 
-
+type TasksType = {
+  id: number;
+  title: string;
+  isDone: boolean;
+};
 
 const Todolist = (props: PropsType) => {
- const newTitle = 'Todolist';
+  const mapFuncF = props.tasks.map((el) => {
+    return(
+      <li>
+      <span>{el.title}</span>
+      <input type="checkbox" checked={el.isDone} />
+    </li>
+    )
+  })
   return (
     <div>
-      <h1>{newTitle}</h1>
+      <h1>{props.title}</h1>
       <input type="text" />
       <button>+</button>
       <ul>
-        <li><span>HTML</span><input type="checkbox" checked={true}/></li>
-        <li><span>JS</span><input type="checkbox" checked={false}/></li>
-        <li><span>ReactJS</span><input type="checkbox" checked={true}/></li>
-
-       
-        </ul>
+        {mapFuncF}
+        {/* <li>
+          <span>{props.tasks[0].title}</span>
+          <input type="checkbox" checked={props.tasks[0].isDone} />
+        </li>
+        <li>
+          <span>{props.tasks[1].title}</span>
+          <input type="checkbox" checked={props.tasks[1].isDone} />
+        </li>
+        <li>
+          <span>{props.tasks[2].title}</span>
+          <input type="checkbox" checked={props.tasks[2].isDone} />
+        </li> */}
+      </ul>
       <button>all</button>
       <button>active</button>
       <button>completed</button>
