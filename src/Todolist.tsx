@@ -3,20 +3,16 @@ import React from 'react'
 
 
   
-const Todolist = (props: PropsType) => {
-    const todoMapFunc = props.tasks.map((el) => {
-        return (
-        <li>
-            <span>{el.title}</span>
-            <input type='checkbox' checked={el.isDone}></input>
-                           </li>)})
-  return (
+const Todolist = () => {
+    return (
     <div>
-        <h1>{props.title}</h1>
+        <h1>New todo</h1>
           <input type="text" />
            <button>+</button>
             <ul>
-             {todoMapFunc}
+             <li>HTML</li>
+             <li>JS</li>
+             <li>ReactJS</li>
             </ul>
            <button>all</button>
            <button>active</button>
