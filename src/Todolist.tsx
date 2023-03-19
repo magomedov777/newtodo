@@ -1,13 +1,15 @@
 import { title } from 'process'
 import React from 'react'
 
-
+type PropsType = {
+  title: string
+}
   
-const Todolist = () => {
+const Todolist = (props: PropsType) => {
   const title = 'New TODOLIST';
     return (
     <div>
-        <h1>{title}</h1>
+        <h1>{props.title}</h1>
           <input type="text" />
            <button>+</button>
             <ul>

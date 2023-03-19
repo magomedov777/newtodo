@@ -21,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-     <Todolist title={}/>
-     <Todolist title={}/>
+     <Todolist title={title}/>
+     <Todolist title={title}/>
     </div>
   );
 };
