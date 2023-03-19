@@ -1,39 +1,27 @@
 import { title } from "process";
 import React from "react";
 
-
 type PropsType = {
   title: string
   checked: boolean
-  tasks: TaskType[]
-};
+}
 
-type TaskType = {
-  id: number
-   title: string
-    isDone: boolean
-};
 
 
 const Todolist = (props: PropsType) => {
-  const title = 'New Todolist'
-  const newTM = props.tasks.map((el) => {
-    return(
-      <li>
-      <span>{el.title}</span>
-      <input type='checkbox' checked={el.isDone}/>
-      </li>
-    )
-  })
+ const newTitle = 'Todolist';
   return (
     <div>
-      <h1>{props.title}</h1>
+      <h1>{newTitle}</h1>
       <input type="text" />
       <button>+</button>
       <ul>
-        {newTM}
-      
-      </ul>
+        <li><span>HTML</span><input type="checkbox" checked={true}/></li>
+        <li><span>JS</span><input type="checkbox" checked={false}/></li>
+        <li><span>ReactJS</span><input type="checkbox" checked={true}/></li>
+
+       
+        </ul>
       <button>all</button>
       <button>active</button>
       <button>completed</button>
