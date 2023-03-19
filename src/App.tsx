@@ -21,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-     <Todolist title={title}/>
-     <Todolist title={title}/>
+     <Todolist title={title} checked={true}/>
+     <Todolist title={title} checked={false}/>
     </div>
   );
 };
