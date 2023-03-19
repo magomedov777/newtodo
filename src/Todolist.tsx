@@ -5,13 +5,13 @@ type PropsType = {
     checked: boolean
     title: string
     tasks: TasksType[]
-    }
+};
 
 type TasksType = {
     id: number
     title: string
     isDone: boolean
-}
+};
   
 const Todolist = (props: PropsType) => {
     const todoMapFunc = props.tasks.map((el) => {
@@ -19,31 +19,21 @@ const Todolist = (props: PropsType) => {
         <li>
             <span>{el.title}</span>
             <input type='checkbox' checked={el.isDone}></input>
-                           </li>
-                           )})
+                           </li>)})
   return (
     <div>
-          <h1>{props.title}</h1>
+        <h1>{props.title}</h1>
           <input type="text" />
-       <button>+</button>
-        <ul>
-            {todoMapFunc}
-         {/* <li><span>{props.tasks[0].title}</span>
-          <input type='checkbox' checked={props.tasks[0].isDone}></input>
-          </li>
-           <li><span>{props.tasks[1].title}</span>
-           <input type='checkbox' checked={props.tasks[1].isDone}></input>
-           </li>
-            <li><span>{props.tasks[2].title}</span>
-             <input type='checkbox' checked={props.tasks[2].isDone}></input>
-             </li> */}
-          </ul>
-        <button>all</button>
-        <button>active</button>
-        <button>completed</button>
+           <button>+</button>
+            <ul>
+             {todoMapFunc}
+            </ul>
+           <button>all</button>
+           <button>active</button>
+           <button>completed</button>
     </div>
   )
-}
+};
 
 
 
