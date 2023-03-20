@@ -2,24 +2,26 @@ import { title } from "process";
 import React from "react";
 
 type PropsType = {
-  title: string;
-  checked: boolean;
-  tasks: TasksType[];
+  title: string
+  checked: boolean
+  tasks: TaskProps[]
+  removeTasks: (taskID: number) => void
 };
-
-type TasksType = {
-  id: number;
-  title: string;
-  isDone: boolean;
+type TaskProps = {
+  id: number
+  title: string
+  isDone: boolean
 };
 
 const Todolist = (props: PropsType) => {
-  const mapFuncF = props.tasks.map((el) => {
+  const title = "Todolist";
+  const mapperTasks = props.tasks.map((el) => {
     return(
-      <li>
-      <span>{el.title}</span>
-      <input type="checkbox" checked={el.isDone} />
-    </li>
+      <li key={el.id}>
+        <button onClick={()=>props.removeTasks(el.id)}>x</button>
+          <span>{el.title}</span>
+          <input type="checkbox" checked={el.isDone} />
+        </li>
     )
   })
   return (
@@ -28,10 +30,10 @@ const Todolist = (props: PropsType) => {
       <input type="text" />
       <button>+</button>
       <ul>
-        {mapFuncF}
+        {mapperTasks}
         {/* <li>
           <span>{props.tasks[0].title}</span>
-          <input type="checkbox" checked={props.tasks[0].isDone} />
+          <input type="checkbox" checked={props.tasks[0].isDone} />{" "}
         </li>
         <li>
           <span>{props.tasks[1].title}</span>
