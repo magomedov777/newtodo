@@ -1,5 +1,5 @@
 import { title } from "process";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 type PropsType = {
   title: string;
@@ -15,23 +15,22 @@ type TaskType = {
 const Todolist = (props: PropsType) => {
   let [filterValue, setFilterValue] = useState("all");
 
-  const filterTask = (buttonName: string) => {
+  let filterTask = (buttonName: string) => {
     setFilterValue(buttonName);
   };
-
-  let filteredTasks = props.tasks;
+  let filteredTask = props.tasks;
   if (filterValue === "active") {
-    filteredTasks = props.tasks.filter((el) => !el.isDone);
+    filteredTask = props.tasks.filter((el) => !el.isDone);
   }
   if (filterValue === "completed") {
-    filteredTasks = props.tasks.filter((el) => el.isDone);
+    filteredTask = props.tasks.filter((el) => el.isDone);
   }
 
   return (
     <div>
       <h1>{props.title}</h1>
       <ul>
-        {filteredTasks.map((el) => {
+        {filteredTask.map((el) => {
           return (
             <li key={el.id}>
               <button onClick={(ID) => props.removeTask(el.id)}>x</button>
