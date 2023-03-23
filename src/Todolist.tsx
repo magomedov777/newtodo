@@ -13,24 +13,22 @@ type TaskType = {
 };
 
 const Todolist = (props: PropsType) => {
-  let [filterValue, setFilterValue] = useState("all");
-
-  let filterTask = (buttonName: string) => {
-    setFilterValue(buttonName);
+  let [filter, setFilter] = useState("all");
+  let filteredTask = (btnName: string) => {
+    setFilter(btnName);
   };
-  let filteredTask = props.tasks;
-  if (filterValue === "active") {
-    filteredTask = props.tasks.filter((el) => !el.isDone);
+  let filterTask = props.tasks;
+  if (filter === "active") {
+    filterTask = props.tasks.filter((t) => !t.isDone);
   }
-  if (filterValue === "completed") {
-    filteredTask = props.tasks.filter((el) => el.isDone);
+  if (filter === "completed") {
+    filterTask = props.tasks.filter((t) => t.isDone);
   }
-
   return (
     <div>
       <h1>{props.title}</h1>
       <ul>
-        {filteredTask.map((el) => {
+        {filterTask.map((el) => {
           return (
             <li key={el.id}>
               <button onClick={(ID) => props.removeTask(el.id)}>x</button>
@@ -40,9 +38,9 @@ const Todolist = (props: PropsType) => {
           );
         })}
       </ul>
-      <button onClick={() => filterTask("all")}>all</button>
-      <button onClick={() => filterTask("active")}>active</button>
-      <button onClick={() => filterTask("completed")}>completed</button>
+      <button onClick={() => filteredTask("all")}>all</button>
+      <button onClick={() => filteredTask("active")}>active</button>
+      <button onClick={() => filteredTask("completed")}>completed</button>
     </div>
   );
 };
