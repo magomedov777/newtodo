@@ -11,13 +11,13 @@ const App: () => JSX.Element = () => {
     { id: 3, title: "ReactJS", isDone: false },
   ]);
 
-  const removeTask = (ID: number) => {
-    setTask(tasks1.filter((el) => el.id !== ID));
-  };
+  const deleteTasks = (tID: number) => {
+    setTask(tasks1.filter((el) => el.id !== tID))
+  }
 
   return (
     <div className="App">
-      <Todolist title={"Todolist"} tasks={tasks1} removeTask={removeTask} />
+      <Todolist title={"Todolist"} tasks={tasks1}  deleteTasks={deleteTasks}/>
     </div>
   );
 };
