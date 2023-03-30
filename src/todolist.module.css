@@ -1,0 +1,54 @@
+.list {
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #77b6ff;
+    margin: 20px;
+}
+.mainTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 37px;
+}
+.btnTask {
+    margin: 1px;
+    margin-left: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+.btnTask:hover{
+    border: 2px solid rgb(218, 240, 27);
+    color: rgb(218, 240, 27);
+    cursor: pointer;
+}
+.deleteBtn{
+    font-weight: bold;
+    color: red;
+    border: 2px solid black;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.deleteBtn:hover{
+    border: 2px solid red;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.btnPlus{
+    border: 2px solid black;
+    font-size: 13px;
+    font-weight: bolder;
+    color: rgb(0, 185, 0);
+}
+.inputAddTask{
+    margin: 2px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
