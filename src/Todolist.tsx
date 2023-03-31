@@ -18,7 +18,7 @@ const Todolist = (props: PropsType) => {
   let filterTasksAll = (buttonName: string) => {
     setTasksFilter(buttonName)
   }
-  let filteredTasks = props.tasks
+  let filteredTasks = props.tasks;
   if (tasksFilter === 'active') {
     filteredTasks = props.tasks.filter((t) => !t.isDone)
   }
