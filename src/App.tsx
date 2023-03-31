@@ -12,6 +12,8 @@ const App: () => JSX.Element = () => {
     { id: v1(), title: "JS", isDone: true },
     { id: v1(), title: "ReactJS", isDone: false },
   ]);
+  
+  
 
   const deleteTasks = (tID: string) => {
     setTask(tasks1.filter((el) => el.id !== tID))

@@ -1,12 +1,12 @@
 import React, { ChangeEvent, useState, KeyboardEvent } from "react";
 import s from './todolist.module.css';
 
-type PropsType = {
-  title: string;
-  tasks: TaskType[];
-  deleteTasks: (tID: string) => void
-  addTask: (title: string) => void
-};
+// type PropsType = {
+//   title: string;
+//   tasks: TaskType[];
+//   deleteTasks: (tID: string) => void
+//   addTask: (title: string) => void
+// };
 type TaskType = {
   id: string;
   title: string;
