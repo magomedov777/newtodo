@@ -30,7 +30,7 @@ const Todolist = (props: PropsType) => {
 
   const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value)
-  }
+  };
 
   const addNewTask = () => {
     props.addTask(title)
@@ -47,7 +47,7 @@ const Todolist = (props: PropsType) => {
         onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
           if (event.key === 'Enter') { addNewTask() }
         }}/>
-        
+
       <button
         className={s.btnPlus}
         onClick={addNewTask}>+</button>
