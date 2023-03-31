@@ -48,9 +48,8 @@ const Todolist = (props: PropsType) => {
             if (event.key === 'Enter') {
               addNewTask()
           }}}/>
-        <button
-          className={s.btnPlus}
-          onClick={addNewTask}>+</button>
+
+        <button className={s.btnPlus} onClick={addNewTask}>+</button>
         <ul>
         {filteredTasks.map((el) => {
           return (
@@ -58,7 +57,7 @@ const Todolist = (props: PropsType) => {
               <button
                 className={s.deleteBtn}
                 onClick={() => props.deleteTasks(el.id)}>x</button>
-              <span>{el.title}</span>
+              <span className={s.taskClass}>{el.title}</span>
               <input type="checkbox" checked={el.isDone} />
             </li>
           );

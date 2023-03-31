@@ -9,8 +9,10 @@ const App: () => JSX.Element = () => {
   const title = "Todolist";
   const [tasks1, setTask] = useState([
     { id: v1(), title: "HTML&CSS", isDone: true },
-    { id: v1(), title: "JS", isDone: true },
-    { id: v1(), title: "ReactJS", isDone: false },
+    { id: v1(), title: "JS", isDone: false },
+    { id: v1(), title: "ReactJS", isDone: true },
+    { id: v1(), title: "Redux Toolkit", isDone: false }
+
   ]);
 
   const deleteTasks = (tID: string) => {

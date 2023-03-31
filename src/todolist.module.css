@@ -1,6 +1,11 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Luckiest+Guy&family=Quando&display=swap');
+
+
+body {
     background-image: url('https://images5.alphacoders.com/985/thumb-1920-985798.png')
 }
+
 .list {
     border: 3px solid black;
     border-radius: 15px;
@@ -9,66 +14,90 @@ body{
     margin: 20px;
     box-shadow: 20px 15px 15px 15px black;
 }
+
 .mainTitle {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-family: 'Luckiest Guy', cursive;
     box-shadow: 10px 5px 5px 5px black;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 37px;
 }
+
 .btnTask {
     margin: 1px;
     margin-left: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Luckiest Guy', cursive;
     font-weight: bold;
     font-size: 15px;
     border: 2px solid black;
     border-radius: 7px;
+    box-shadow: 4px 4px 4px black;
 }
-.btnTask:hover{
+
+.btnTask:hover {
     border: 2px solid rgb(218, 240, 27);
     color: rgb(218, 240, 27);
     cursor: pointer;
     transition: 0.2s;
+    box-shadow: 4px 4px 4px rgb(0, 0, 107);
 }
-.deleteBtn{
-    font-weight: bold;
+
+.deleteBtn {
+    font-weight: bolder;
     color: red;
     border: 2px solid black;
     margin: 3px;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 15px;
+    box-shadow: 1px 3px 3px black;
+    margin: 5px;
+    font-family: 'Luckiest Guy', cursive;
+
 }
-.deleteBtn:hover{
+
+.taskClass {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+
+}
+
+.deleteBtn:hover {
     border: 2px solid red;
     cursor: pointer;
     font-size: 14px;
     font-weight: bolder;
 }
-.btnPlus{
+
+.btnPlus {
     border: 2px solid black;
     font-size: 16px;
-    height: 25px;
+    font-family: 'Quando', serif;
+    height: 27px;
+    margin-left: 2px;
+    margin-top: 10px;
     font-weight: bolder;
     border-radius: 7px;
     color: rgb(0, 185, 0);
     display: inline-flex;
+    box-shadow: 7px 7px 7px black;
 }
 
-.btnPlus:hover{
+.btnPlus:hover {
     border: 2px solid rgb(218, 240, 27);
     color: rgb(18, 240, 18);
     background-color: azure;
     font-size: 17px;
     cursor: pointer;
-
 }
-.inputAddTask{
+
+.inputAddTask {
     margin: 2px;
     height: 20px;
     width: 150px;
     border: 2px solid black;
     border-radius: 7px;
+    box-shadow: 5px 5px 5px black;
 }
