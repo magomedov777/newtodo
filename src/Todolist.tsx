@@ -46,8 +46,8 @@ const Todolist = (props: PropsType) => {
         value={title}
         onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
           if (event.key === 'Enter') { addNewTask() }
-        }}
-      />
+        }}/>
+        
       <button
         className={s.btnPlus}
         onClick={addNewTask}>+</button>
