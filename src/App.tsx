@@ -15,9 +15,9 @@ const App: () => JSX.Element = () => {
   
   
 
-  // const deleteTasks = (tID: string) => {
-  //   setTask(tasks1.filter((el) => el.id !== tID))
-  // }
+  const deleteTasks = (tID: string) => {
+    setTask(tasks1.filter((el) => el.id !== tID))
+  }
 
   const addTask = (title: string) => {
     const testingTasks = { id: v1(), title: title, isDone: true };
