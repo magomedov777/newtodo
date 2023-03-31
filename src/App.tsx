@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { JsxElement } from "typescript";
 import { v1 } from "uuid";
 import "./App.css";
@@ -12,22 +12,15 @@ const App: () => JSX.Element = () => {
     { id: v1(), title: "JS", isDone: true },
     { id: v1(), title: "ReactJS", isDone: false },
   ]);
-  
-  
 
   const deleteTasks = (tID: string) => {
     setTask(tasks1.filter((el) => el.id !== tID))
   };
 
   const addTask = (title: string) => {
-    let task = {id: v1(), title: title, isDone: false}
-    const newTask = [task, ...tasks1]
-    setTask(newTask)
-    
-  };
-
-
-
+    const newTask = { id: v1(), title: title, isDone: false }
+    setTask([newTask, ...tasks1])
+};
   return (
     <div className="App">
       <Todolist
@@ -35,7 +28,7 @@ const App: () => JSX.Element = () => {
         tasks={tasks1}
         deleteTasks={deleteTasks}
         addTask={addTask}
-         />
+      />
     </div>
   );
 };

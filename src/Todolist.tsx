@@ -16,50 +16,42 @@ type TaskType = {
 const Todolist = (props: PropsType) => {
   let [tasksFilter, setTasksFilter] = useState('all')
   let filterTasksAll = (buttonName: string) => {
-    setTasksFilter(buttonName)
-  }
-  let filteredTasks = props.tasks;
-  if (tasksFilter === 'active') {
-    filteredTasks = props.tasks.filter((t) => !t.isDone)
-  }
-  if (tasksFilter === 'completed') {
-    filteredTasks = props.tasks.filter((t) => t.isDone)
-  }
+    setTasksFilter(buttonName)};
 
-  const [title, setTitle] = useState('')
+  let filteredTasks = props.tasks;
+    if (tasksFilter === 'active') {
+    filteredTasks = props.tasks.filter((t) => !t.isDone)
+  };
+    if (tasksFilter === 'completed') {
+    filteredTasks = props.tasks.filter((t) => t.isDone)
+  };
+
+  const [title, setTitle] = useState('');
 
   const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value)
-    
-  };
+};
 
-  const addNewListTasks = () => {
+  const addNewTask = () => {
     props.addTask(title)
     setTitle('')
-  }
-
-  const onKeyPressEventHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-    if(event.key === 'Enter'){
-      addNewListTasks()
-    }
-  }
-
- 
+  };
   return (
     <div className={s.list}>
       <h1 className={s.mainTitle}>{props.title}</h1>
-      <input
-        className={s.inputAddTask}
-        placeholder={'Tap new tasks!'}
-        onChange={addInputTask}
-        value={title}
-        onKeyPress={onKeyPressEventHandler}
-        />
-
-      <button
-        className={s.btnPlus}
-        onClick={addNewListTasks}>+</button>
-      <ul>
+        <input
+          className={s.inputAddTask}
+          placeholder={'Tap new tasks!'}
+          onChange={addInputTask}
+          value={title}
+          onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.key === 'Enter') {
+              addNewTask()
+          }}}/>
+        <button
+          className={s.btnPlus}
+          onClick={addNewTask}>+</button>
+        <ul>
         {filteredTasks.map((el) => {
           return (
             <li key={el.id}>
