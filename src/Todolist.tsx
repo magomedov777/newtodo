@@ -30,12 +30,21 @@ const Todolist = (props: PropsType) => {
 
   const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value)
+    
   };
 
-  const addNewTask = () => {
+  const addNewListTasks = () => {
     props.addTask(title)
     setTitle('')
-  };
+  }
+
+  const onKeyPressEventHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if(event.key === 'Enter'){
+      addNewListTasks()
+    }
+  }
+
+ 
   return (
     <div className={s.list}>
       <h1 className={s.mainTitle}>{props.title}</h1>
@@ -44,13 +53,12 @@ const Todolist = (props: PropsType) => {
         placeholder={'Tap new tasks!'}
         onChange={addInputTask}
         value={title}
-        onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
-          if (event.key === 'Enter') { addNewTask() }
-        }}/>
+        onKeyPress={onKeyPressEventHandler}
+        />
 
       <button
         className={s.btnPlus}
-        onClick={addNewTask}>+</button>
+        onClick={addNewListTasks}>+</button>
       <ul>
         {filteredTasks.map((el) => {
           return (

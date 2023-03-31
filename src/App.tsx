@@ -20,10 +20,13 @@ const App: () => JSX.Element = () => {
   };
 
   const addTask = (title: string) => {
-    const testingTasks = { id: v1(), title: title, isDone: true };
-    const newTasks = [testingTasks, ...tasks1]
-    setTask(newTasks)
+    let task = {id: v1(), title: title, isDone: false}
+    const newTask = [task, ...tasks1]
+    setTask(newTask)
+    
   };
+
+
 
   return (
     <div className="App">
@@ -31,7 +34,8 @@ const App: () => JSX.Element = () => {
         title={"Todolist"}
         tasks={tasks1}
         deleteTasks={deleteTasks}
-        addTask={addTask} />
+        addTask={addTask}
+         />
     </div>
   );
 };
