@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { JsxElement } from "typescript";
 import { v1 } from "uuid";
 import "./App.css";
 import Todolist from "./Todolist";
