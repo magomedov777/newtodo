@@ -30,7 +30,6 @@ const Todolist = (props: PropsType) => {
 
   const [title, setTitle] = useState('');
 
-
   const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value)
 };
