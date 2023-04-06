@@ -5,7 +5,6 @@ import Todolist from "./Todolist";
 
 
 const App: () => JSX.Element = () => {
-  const title = "Todolist";
   const [tasks1, setTask] = useState([
     { id: v1(), title: "HTML&CSS", isDone: true },
     { id: v1(), title: "JS", isDone: false },
@@ -14,10 +13,8 @@ const App: () => JSX.Element = () => {
 
   ]);
 
-  
-
-  const deleteTasks = (tID: string) => {
-    setTask(tasks1.filter((el) => el.id !== tID))
+    const deleteTasks = (tID: string) => {
+      setTask(tasks1.filter((el) => el.id !== tID))
   };
 
   const addTask = (title: string) => {
