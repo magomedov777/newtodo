@@ -26,7 +26,7 @@ const Todolist = (props: PropsType) => {
   };
     if (tasksFilter === 'completed') {
     filteredTasks = props.tasks.filter((t) => t.isDone)
-};
+  };
 
   const [title, setTitle] = useState('');
 
