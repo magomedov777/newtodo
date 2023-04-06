@@ -57,7 +57,6 @@ const Todolist = (props: PropsType) => {
         <ul>
         {filteredTasks.map((el) => {
        
-
           return (
             <li key={el.id} className={el.isDone ? s.isDone : ''}>
               <button
