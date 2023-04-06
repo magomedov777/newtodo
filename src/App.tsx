@@ -15,6 +15,8 @@ const App: () => JSX.Element = () => {
 
   ]);
 
+  
+
   const deleteTasks = (tID: string) => {
     setTask(tasks1.filter((el) => el.id !== tID))
   };
@@ -23,6 +25,9 @@ const App: () => JSX.Element = () => {
     const newTask = { id: v1(), title: title, isDone: false }
     setTask([newTask, ...tasks1])
 };
+
+
+
   return (
     <div className="App">
       <Todolist

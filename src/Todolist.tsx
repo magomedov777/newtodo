@@ -7,6 +7,7 @@ type PropsType = {
   deleteTasks: (tID: string) => void
   addTask: (title: string) => void
 };
+
 type TaskType = {
   id: string;
   title: string;
@@ -15,6 +16,7 @@ type TaskType = {
 
 const Todolist = (props: PropsType) => {
   let [tasksFilter, setTasksFilter] = useState('all')
+
   let filterTasksAll = (buttonName: string) => {
     setTasksFilter(buttonName)};
 
@@ -24,9 +26,10 @@ const Todolist = (props: PropsType) => {
   };
     if (tasksFilter === 'completed') {
     filteredTasks = props.tasks.filter((t) => t.isDone)
-  };
+};
 
   const [title, setTitle] = useState('');
+
 
   const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value)
@@ -34,8 +37,10 @@ const Todolist = (props: PropsType) => {
 
   const addNewTask = () => {
     props.addTask(title)
-    setTitle('')
-  };
+      setTitle('')
+    
+}
+ 
   return (
     <div className={s.list}>
       <h1 className={s.mainTitle}>{props.title}</h1>
@@ -52,13 +57,18 @@ const Todolist = (props: PropsType) => {
         <button className={s.btnPlus} onClick={addNewTask}>+</button>
         <ul>
         {filteredTasks.map((el) => {
+       
+
           return (
-            <li key={el.id}>
+            <li key={el.id} className={el.isDone ? s.isDone : ''}>
               <button
                 className={s.deleteBtn}
                 onClick={() => props.deleteTasks(el.id)}>x</button>
               <span className={s.taskClass}>{el.title}</span>
-              <input type="checkbox" checked={el.isDone} />
+              <input 
+              type="checkbox" 
+              checked={el.isDone}
+              />
             </li>
           );
         })}
