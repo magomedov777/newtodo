@@ -57,14 +57,12 @@ body {
     box-shadow: 1px 3px 3px black;
     margin: 5px;
     font-family: 'Luckiest Guy', cursive;
-
 }
 
 .taskClass {
     font-size: 15px;
     font-weight: bold;
     font-family: 'Luckiest Guy', cursive;
-
 }
 
 .deleteBtn:hover {

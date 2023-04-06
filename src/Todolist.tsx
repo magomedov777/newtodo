@@ -6,6 +6,7 @@ type PropsType = {
   tasks: TaskType[];
   deleteTasks: (tID: string) => void
   addTask: (title: string) => void
+  checkboxState: (newID: string, newIsDone: boolean) => void
 };
 
 type TaskType = {
@@ -15,7 +16,7 @@ type TaskType = {
 };
 
 const Todolist = (props: PropsType) => {
-  let [tasksFilter, setTasksFilter] = useState('all')
+  const [tasksFilter, setTasksFilter] = useState('all')
 
   let filterTasksAll = (buttonName: string) => {
     setTasksFilter(buttonName)};
@@ -35,8 +36,11 @@ const Todolist = (props: PropsType) => {
 };
 
   const addNewTask = () => {
-    props.addTask(title)
+    if(title.trim() ! == ''){
+      props.addTask(title)
       setTitle('')
+    }
+  
 };
  
   return (
@@ -55,7 +59,9 @@ const Todolist = (props: PropsType) => {
         <button className={s.btnPlus} onClick={addNewTask}>+</button>
         <ul>
         {filteredTasks.map((el) => {
-       
+            const onCheckboxHandler = (event: ChangeEvent<HTMLInputElement>) => {
+                props.checkboxState(el.id, event.currentTarget.checked)
+            }
           return (
             <li key={el.id} className={el.isDone ? s.isDone : ''}>
               <button
@@ -65,6 +71,7 @@ const Todolist = (props: PropsType) => {
               <input 
               type="checkbox" 
               checked={el.isDone}
+              onChange={onCheckboxHandler}
               />
             </li>
           );

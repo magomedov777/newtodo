@@ -13,15 +13,18 @@ const App: () => JSX.Element = () => {
 
   ]);
 
-    const deleteTasks = (tID: string) => {
-      setTask(tasks1.filter((el) => el.id !== tID))
+  const deleteTasks = (tID: string) => {
+    setTask(tasks1.filter((el) => el.id !== tID))
   };
 
   const addTask = (title: string) => {
     const newTask = { id: v1(), title: title, isDone: false }
     setTask([newTask, ...tasks1])
-};
+  };
 
+  const checkboxState = (newID: string, newIsDone: boolean) => {
+      setTask(tasks1.map(el => el.id === newID ? {...el, isDone: newIsDone} : el))
+  }
 
 
   return (
@@ -31,6 +34,7 @@ const App: () => JSX.Element = () => {
         tasks={tasks1}
         deleteTasks={deleteTasks}
         addTask={addTask}
+        checkboxState={checkboxState}
       />
     </div>
   );
