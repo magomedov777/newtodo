@@ -38,9 +38,7 @@ const Todolist = (props: PropsType) => {
   const addNewTask = () => {
     props.addTask(title)
       setTitle('')
-    
-   
-  };
+    };
 
   return (
     <div className={s.list}>
