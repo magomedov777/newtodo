@@ -21,6 +21,10 @@ const App: () => JSX.Element = () => {
     setTask([newTask, ...tasks1])
   };
 
+  const checkboxState = (newID: string, newIsDone: boolean) => {
+      setTask(tasks1.map(el => el.id === newID ? {...el, isDone: newIsDone} : el))
+  }
+
   return (
     <div className="App">
       <Todolist
