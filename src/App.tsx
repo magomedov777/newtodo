@@ -10,7 +10,6 @@ const App: () => JSX.Element = () => {
     { id: v1(), title: "JS", isDone: false },
     { id: v1(), title: "ReactJS", isDone: true },
     { id: v1(), title: "Redux Toolkit", isDone: false }
-
   ]);
 
   const deleteTasks = (tID: string) => {
@@ -22,19 +21,13 @@ const App: () => JSX.Element = () => {
     setTask([newTask, ...tasks1])
   };
 
-  const checkboxState = (newID: string, newIsDone: boolean) => {
-      setTask(tasks1.map(el => el.id === newID ? {...el, isDone: newIsDone} : el))
-  }
-
-
   return (
     <div className="App">
       <Todolist
         title={"Todolist"}
         tasks={tasks1}
         deleteTasks={deleteTasks}
-        addTask={addTask}
-        checkboxState={checkboxState}
+        // addTask={addTask}
       />
     </div>
   );

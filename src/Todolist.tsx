@@ -6,7 +6,6 @@ type PropsType = {
   tasks: TaskType[];
   deleteTasks: (tID: string) => void
   addTask: (title: string) => void
-  checkboxState: (newID: string, newIsDone: boolean) => void
 };
 
 type TaskType = {
@@ -19,13 +18,14 @@ const Todolist = (props: PropsType) => {
   const [tasksFilter, setTasksFilter] = useState('all')
 
   let filterTasksAll = (buttonName: string) => {
-    setTasksFilter(buttonName)};
+    setTasksFilter(buttonName)
+  };
 
   let filteredTasks = props.tasks;
-    if (tasksFilter === 'active') {
+  if (tasksFilter === 'active') {
     filteredTasks = props.tasks.filter((t) => !t.isDone)
   };
-    if (tasksFilter === 'completed') {
+  if (tasksFilter === 'completed') {
     filteredTasks = props.tasks.filter((t) => t.isDone)
   };
 
@@ -33,45 +33,42 @@ const Todolist = (props: PropsType) => {
 
   const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value)
-};
+  };
 
   const addNewTask = () => {
-    if(title.trim() ! == ''){
-      props.addTask(title)
+    props.addTask(title)
       setTitle('')
-    }
-  
-};
- 
+    
+   
+  };
+
   return (
     <div className={s.list}>
       <h1 className={s.mainTitle}>{props.title}</h1>
-        <input
-          className={s.inputAddTask}
-          placeholder={'Create new tasks!'}
-          onChange={addInputTask}
-          value={title}
-          onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
-            if (event.key === 'Enter') {
-              addNewTask()
-          }}}/>
+      <input
+        className={s.inputAddTask}
+        placeholder={'Create new tasks!'}
+        onChange={addInputTask}
+        value={title}
+        onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
+          if (event.key === 'Enter') {
+            addNewTask()
+          }
+        }}/>
 
-        <button className={s.btnPlus} onClick={addNewTask}>+</button>
-        <ul>
+      <button className={s.btnPlus} onClick={addNewTask}>+</button>
+      <ul>
         {filteredTasks.map((el) => {
-            const onCheckboxHandler = (event: ChangeEvent<HTMLInputElement>) => {
-                props.checkboxState(el.id, event.currentTarget.checked)
-            }
+         //debugger
           return (
-            <li key={el.id} className={el.isDone ? s.isDone : ''}>
+            <li key={el.id}>  {/*className={el.isDone ? s.isDone : ''} for opacity tasks*/}
               <button
                 className={s.deleteBtn}
                 onClick={() => props.deleteTasks(el.id)}>x</button>
               <span className={s.taskClass}>{el.title}</span>
-              <input 
-              type="checkbox" 
-              checked={el.isDone}
-              onChange={onCheckboxHandler}
+              <input
+                type="checkbox"
+                checked={el.isDone}
               />
             </li>
           );
