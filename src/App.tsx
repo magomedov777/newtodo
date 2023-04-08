@@ -32,6 +32,7 @@ const App: () => JSX.Element = () => {
         tasks={tasks1}
         deleteTasks={deleteTasks}
         addTask={addTask}
+        checkboxState={checkboxState}
       />
     </div>
   );
