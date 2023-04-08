@@ -37,11 +37,12 @@ const Todolist = (props: PropsType) => {
   };
 
   const addNewTask = () => {
-    props.addTask(title)
+    if(title.trim() !== ''){
+      props.addTask(title)
       setTitle('')
-    };
-
-  return (
+    }};
+  
+    return (
     <div className={s.list}>
       <h1 className={s.mainTitle}>{props.title}</h1>
       <input
