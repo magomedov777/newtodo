@@ -6,6 +6,7 @@ type PropsType = {
   tasks: TaskType[];
   deleteTasks: (tID: string) => void
   addTask: (title: string) => void
+  checkboxState: (newID: string, newIsDone: boolean) => void
 };
 
 type TaskType = {
