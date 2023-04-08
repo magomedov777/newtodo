@@ -27,7 +27,7 @@ const App: () => JSX.Element = () => {
         title={"Todolist"}
         tasks={tasks1}
         deleteTasks={deleteTasks}
-        // addTask={addTask}
+        addTask={addTask}
       />
     </div>
   );
