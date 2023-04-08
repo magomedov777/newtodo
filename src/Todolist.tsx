@@ -58,6 +58,9 @@ const Todolist = (props: PropsType) => {
       <ul>
         {filteredTasks.map((el) => {
          //debugger
+         const onChangeCheckboxHandler = (event: ChangeEvent<HTMLInputElement>) => {
+
+         }
           return (
             <li key={el.id}>  {/*className={el.isDone ? s.isDone : ''} for opacity tasks*/}
               <button
@@ -67,6 +70,7 @@ const Todolist = (props: PropsType) => {
               <input
                 type="checkbox"
                 checked={el.isDone}
+                onChange={onChangeCheckboxHandler}
               />
             </li>
           );
