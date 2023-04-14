@@ -43,7 +43,8 @@ const Todolist = (props: PropsType) => {
 
   return (
     <div className={s.list}>
-      <h1 className={s.mainTitle}>{props.title}<button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button></h1>
+      <button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button>
+      <h1 className={s.mainTitle}>{props.title}</h1>
       <input
         className={s.inputAddTask}
         placeholder={'Create new tasks!'}
