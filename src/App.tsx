@@ -9,7 +9,6 @@ type TodolistsType = {
   filter: FilterValueType
 }
 const App: () => JSX.Element = () => {
-
   let todolistID1 = v1()
   let todolistID2 = v1()
 
