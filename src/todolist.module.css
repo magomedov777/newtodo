@@ -110,19 +110,21 @@ body {
 }
 
 .removeTodoBtn{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bolder;
     background-color: #eb00c7;
     border: 1px solid #eb00c7;
     font-family: 'Luckiest Guy', cursive;
     color: red;
-    margin-top: -20px;
+    margin-top: -25px;
     margin-right: -15px;
     float: right;
+    box-shadow: 2px 2px 2px black;
 }
 
 .removeTodoBtn:hover{
    cursor: pointer;
    color: gold;
-   transition: 0.5s;
+   transition: 0.3s;
+   box-shadow: 1px 2px 2px 2px black;
 }

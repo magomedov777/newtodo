@@ -47,7 +47,7 @@ const Todolist = (props: PropsType) => {
       <h1 className={s.mainTitle}>{props.title}</h1>
       <input
         className={s.inputAddTask}
-        placeholder={'Create new tasks!'}
+        placeholder={'Hi! Add new skills! >>>'}
         onChange={addInputTask}
         value={title}
         onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
