@@ -5,13 +5,12 @@ type PropsType = {
   id: string
   title: string;
   tasks: TaskType[];
+  todolistID: string
+  filter: FilterValueType
   deleteTasks: (todolistID: string, tID: string) => void
   addTask: (todolistID: string, title: string) => void
   checkboxState: (todolistID: string, newID: string, newIsDone: boolean) => void
-  // taskForTodolist: (tID: string, title: string, filter: FilterValueType) => void
   changeFilter: (todolistID: string, value: FilterValueType) => void
-  todolistID: string
-  filter: FilterValueType
   removeTodo: (todolistID: string) => void
 };
 
@@ -24,19 +23,6 @@ type TaskType = {
 export type FilterValueType = 'all' | 'active' | 'completed'
 
 const Todolist = (props: PropsType) => {
-  // const [tasksFilter, setTasksFilter] = useState('all')
-
-  // let filterTasksAll = (buttonName: string) => {
-  //   setTasksFilter(buttonName)
-  // };
-
-  // let filteredTasks = props.tasks;
-  // if (tasksFilter === 'active') {
-  //   filteredTasks = props.tasks.filter((t) => !t.isDone)
-  // };
-  // if (tasksFilter === 'completed') {
-  //   filteredTasks = props.tasks.filter((t) => t.isDone)
-  // };
 
   const [title, setTitle] = useState('');
 
