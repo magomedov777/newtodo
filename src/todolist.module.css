@@ -6,8 +6,6 @@ body {
     background-image: url('https://images5.alphacoders.com/985/thumb-1920-985798.png')
 }
 
-
-
 .list {
     border: 5px solid black;
     border-radius: 15px;
@@ -43,9 +41,11 @@ body {
     border: 2px solid rgb(255, 240, 0);
     color: rgb(255, 240, 0);
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
     box-shadow: 4px 4px 4px rgb(0, 0, 107);
 }
+
+
 
 .deleteBtn {
     font-weight: bolder;
@@ -123,8 +123,30 @@ body {
 }
 
 .removeTodoBtn:hover{
-   cursor: pointer;
-   color: gold;
-   transition: 0.3s;
-   box-shadow: 1px 2px 2px 2px black;
-}
+    cursor: pointer;
+    color: gold;
+    transition: 0.3s;
+    box-shadow: 1px 2px 2px 2px black;
+    animation: shake 0.70s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  };

@@ -34,11 +34,6 @@ const App: () => JSX.Element = () => {
     ]
   })
 
-  const removeTodo = (todolistID: string) => {
-    setTodolists(todolists.filter(tl => tl.id !== todolistID))
-    delete tasks[todolistID]
-  }
-
   const deleteTasks = (todolistID: string, tID: string) => {
     setTasks({ ...tasks, [todolistID]: tasks[todolistID].filter(tl => tl.id !== tID) })
   };
@@ -54,6 +49,11 @@ const App: () => JSX.Element = () => {
 
   const changeFilter = (todolistID: string, value: FilterValueType) => {
     setTodolists(todolists.map(fl => fl.id === todolistID ? { ...fl, filter: value } : fl))
+  };
+
+  const removeTodo = (todolistID: string) => {
+    setTodolists(todolists.filter(tl => tl.id !== todolistID))
+    delete tasks[todolistID]
   };
 
   return (
@@ -82,7 +82,6 @@ const App: () => JSX.Element = () => {
           />
         )
       })}
-
     </div>
   );
 };

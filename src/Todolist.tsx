@@ -39,7 +39,7 @@ const Todolist = (props: PropsType) => {
 
   const removeTodoHandler = () => {
     props.removeTodo(props.todolistID)
-  }
+  };
 
   return (
     <div className={s.list}>
@@ -47,7 +47,7 @@ const Todolist = (props: PropsType) => {
       <h1 className={s.mainTitle}>{props.title}</h1>
       <input
         className={s.inputAddTask}
-        placeholder={'Hi! Add new skills! >>>'}
+        placeholder={'Tap to create new skill!'}
         onChange={addInputTask}
         value={title}
         onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
