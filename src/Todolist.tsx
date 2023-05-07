@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState, KeyboardEvent } from "react";
 import s from './todolist.module.css';
+import { AddItemForm } from "./AddItemForm";
 
 type PropsType = {
   id: string
@@ -23,40 +24,19 @@ type TaskType = {
 export type FilterValueType = 'all' | 'active' | 'completed'
 
 const Todolist = (props: PropsType) => {
-
-  const [title, setTitle] = useState('');
-
-  const addInputTask = (event: ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.currentTarget.value)
-  };
-
-  const addNewTask = () => {
-    if (title.trim() !== '') {
-      props.addTask(props.todolistID, title)
-      setTitle('')
-    }
-  };
-
   const removeTodoHandler = () => {
     props.removeTodo(props.todolistID)
   };
+
+  const addTaskHandler = (newTitle: string) => {
+    props.addTask(newTitle, props.todolistID)
+  }
 
   return (
     <div className={s.list}>
       <button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button>
       <h1 className={s.mainTitle}>{props.title}</h1>
-      <input
-        className={s.inputAddTask}
-        placeholder={'Tap to create new skill!'}
-        onChange={addInputTask}
-        value={title}
-        onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
-          if (event.key === 'Enter') {
-            addNewTask()
-          }
-        }} />
-
-      <button className={s.btnPlus} onClick={addNewTask}>+</button>
+      <AddItemForm callBack={addTaskHandler} />
       <ul>
         {props.tasks.map((t) => {
           const onChangeCheckboxHandler = (event: ChangeEvent<HTMLInputElement>) => {

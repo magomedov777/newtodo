@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v1 } from "uuid";
 import "./App.css";
 import Todolist, { FilterValueType } from "./Todolist";
+import { AddItemForm } from "./AddItemForm";
 
 type TodolistsType = {
   id: string
@@ -25,13 +26,12 @@ const App: () => JSX.Element = () => {
       { id: v1(), title: 'Redux', isDone: true },
       { id: v1(), title: 'MaterialUI', isDone: false }
     ],
-
     [todolistID2]: [
       { id: v1(), title: 'Rest API', isDone: true },
       { id: v1(), title: 'Sql', isDone: true },
       { id: v1(), title: 'MongoDB', isDone: false },
       { id: v1(), title: 'NextJS', isDone: true }
-    ]
+    ],
   })
 
   const deleteTasks = (todolistID: string, tID: string) => {
@@ -56,8 +56,16 @@ const App: () => JSX.Element = () => {
     delete tasks[todolistID]
   };
 
+  const addTodolist = (newTitle: string) => {
+    const newTodolistID = v1();
+    const newTodolist: TodolistsType = { id: todolistID2, title: newTitle, filter: 'all' };
+    setTodolists([newTodolist, ...todolists])
+    setTasks({ ...tasks, [newTodolistID]: [] })
+  }
+
   return (
     <div className="App">
+      <AddItemForm callBack={addTodolist} />
       {todolists.map(tl => {
         let tasksForTodolist = tasks[tl.id]
         if (tl.filter === 'active') {
