@@ -28,15 +28,16 @@ const Todolist = (props: PropsType) => {
     props.removeTodo(props.todolistID)
   };
 
-  const addTaskHandler = (newTitle: string) => {
-    props.addTask(newTitle, props.todolistID)
-  }
+   const addTaskHandler = (newTitle: string) => {
+        props.addTask(props.id, newTitle)
+    }
+  
 
   return (
     <div className={s.list}>
       <button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button>
       <h1 className={s.mainTitle}>{props.title}</h1>
-      <AddItemForm callBack={addTaskHandler} />
+      <AddItemForm callBack={addTaskHandler}/>
       <ul>
         {props.tasks.map((t) => {
           const onChangeCheckboxHandler = (event: ChangeEvent<HTMLInputElement>) => {

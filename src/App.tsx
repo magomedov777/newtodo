@@ -13,6 +13,7 @@ const App: () => JSX.Element = () => {
   let todolistID1 = v1()
   let todolistID2 = v1()
 
+
   let [todolists, setTodolists] = useState<Array<TodolistsType>>([
     { id: todolistID1, title: 'Front-End', filter: 'all' },
     { id: todolistID2, title: 'Back-End', filter: 'all' },
@@ -58,7 +59,7 @@ const App: () => JSX.Element = () => {
 
   const addTodolist = (newTitle: string) => {
     const newTodolistID = v1();
-    const newTodolist: TodolistsType = { id: todolistID2, title: newTitle, filter: 'all' };
+    const newTodolist: TodolistsType = { id: newTodolistID, title: newTitle, filter: 'all' };
     setTodolists([newTodolist, ...todolists])
     setTasks({ ...tasks, [newTodolistID]: [] })
   }

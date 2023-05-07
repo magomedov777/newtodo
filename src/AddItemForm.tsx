@@ -2,7 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 import s from './todolist.module.css';
 
 type PropsType = {
-    callBack: (newTitle: string) => void
+    callBack: (title: string) => void
 }
 
 export const AddItemForm = (props: PropsType) => {
@@ -18,6 +18,7 @@ export const AddItemForm = (props: PropsType) => {
             setTitle('')
         }
     };
+    
     return (
         <div>
             <input
