@@ -3,6 +3,7 @@ import { v1 } from "uuid";
 import "./App.css";
 import Todolist, { FilterValueType } from "./Todolist";
 import { AddItemForm } from "./AddItemForm";
+import { relative } from "path";
 
 type TodolistsType = {
   id: string
@@ -36,11 +37,11 @@ const App: () => JSX.Element = () => {
   })
 
   const updateTask = (todolistID: string, tID: string, updateTitle: string) => {
-    setTasks({...tasks,[todolistID]:tasks[todolistID].map(el => el.id === tID ? {...el, title:updateTitle} : el)})
+    setTasks({ ...tasks, [todolistID]: tasks[todolistID].map(el => el.id === tID ? { ...el, title: updateTitle } : el) })
   };
 
   const updateTodolistTitle = (todolistID: string, updateTitle: string) => {
-    setTodolists(todolists.map(el => el.id === todolistID ? {...el, title:updateTitle} : el))
+    setTodolists(todolists.map(el => el.id === todolistID ? { ...el, title: updateTitle } : el))
   };
 
   const deleteTasks = (todolistID: string, tID: string) => {
@@ -74,34 +75,48 @@ const App: () => JSX.Element = () => {
 
   return (
     <div className="App">
-      <AddItemForm callBack={addTodolist} />
-      {todolists.map(tl => {
-        let tasksForTodolist = tasks[tl.id]
-        if (tl.filter === 'active') {
-          tasksForTodolist = tasks[tl.id].filter((t) => !t.isDone)
-        };
-        if (tl.filter === 'completed') {
-          tasksForTodolist = tasks[tl.id].filter((t) => t.isDone)
-        };
-        return (
-          <Todolist
-            key={tl.id}
-            id={tl.id}
-            title={tl.title}
-            todolistID={tl.id}
-            filter={tl.filter}
-            changeFilter={changeFilter}
-            tasks={tasksForTodolist}
-            deleteTasks={deleteTasks}
-            addTask={addTask}
-            checkboxState={checkboxState}
-            removeTodo={removeTodo}
-            updateTask={updateTask}
-            updateTodolistTitle={updateTodolistTitle}
-          />
-        )
-      })}
-    </div>
+      <div style={{ position: 'absolute', display: 'block', top: '600px', left: '700px' }}>
+        <b style={{
+          fontFamily: 'Luckiest Guy',
+          fontSize: '20px',
+          boxShadow: '4px 4px 4px 4px black',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          color: 'gold'
+        }}>create new list</b>
+        <span><AddItemForm callBack={addTodolist} /></span>
+      </div>
+      {/* <AddItemForm callBack={addTodolist} /> */}
+      {
+        todolists.map(tl => {
+          let tasksForTodolist = tasks[tl.id]
+          if (tl.filter === 'active') {
+            tasksForTodolist = tasks[tl.id].filter((t) => !t.isDone)
+          };
+          if (tl.filter === 'completed') {
+            tasksForTodolist = tasks[tl.id].filter((t) => t.isDone)
+          };
+          return (
+            <Todolist
+              key={tl.id}
+              id={tl.id}
+              title={tl.title}
+              todolistID={tl.id}
+              filter={tl.filter}
+              changeFilter={changeFilter}
+              tasks={tasksForTodolist}
+              deleteTasks={deleteTasks}
+              addTask={addTask}
+              checkboxState={checkboxState}
+              removeTodo={removeTodo}
+              updateTask={updateTask}
+              updateTodolistTitle={updateTodolistTitle}
+            />
+          )
+        })
+      }
+    </div >
   );
 };
 
