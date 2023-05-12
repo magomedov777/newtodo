@@ -18,7 +18,7 @@ export const AddItemForm = (props: PropsType) => {
             setTitle('')
         }
     };
-    
+
     return (
         <div>
             <input

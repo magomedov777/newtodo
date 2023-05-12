@@ -9,10 +9,10 @@ type TodolistsType = {
   title: string
   filter: FilterValueType
 }
+
 const App: () => JSX.Element = () => {
   let todolistID1 = v1()
   let todolistID2 = v1()
-
 
   let [todolists, setTodolists] = useState<Array<TodolistsType>>([
     { id: todolistID1, title: 'Front-End', filter: 'all' },
@@ -34,6 +34,14 @@ const App: () => JSX.Element = () => {
       { id: v1(), title: 'NextJS', isDone: true }
     ],
   })
+
+  const updateTask = (todolistID: string, tID: string, updateTitle: string) => {
+    setTasks({...tasks,[todolistID]:tasks[todolistID].map(el => el.id === tID ? {...el, title:updateTitle} : el)})
+  };
+
+  const updateTodolistTitle = (todolistID: string, updateTitle: string) => {
+    setTodolists(todolists.map(el => el.id === todolistID ? {...el, title:updateTitle} : el))
+  };
 
   const deleteTasks = (todolistID: string, tID: string) => {
     setTasks({ ...tasks, [todolistID]: tasks[todolistID].filter(tl => tl.id !== tID) })
@@ -88,6 +96,8 @@ const App: () => JSX.Element = () => {
             addTask={addTask}
             checkboxState={checkboxState}
             removeTodo={removeTodo}
+            updateTask={updateTask}
+            updateTodolistTitle={updateTodolistTitle}
           />
         )
       })}
