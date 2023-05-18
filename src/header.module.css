@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Luckiest+Guy&family=Quando&display=swap');
+
+
+.mainHeader {
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    background-color: #0099ff;
+    opacity: 85%;
+}
+
+.headerMenu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px;
+    margin-right: 120px;
+    opacity: 100%;
+}
+
+.item {
+    margin-left: 10px;
+    box-shadow: 1px 1px black;
+    opacity: 130%;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-family: 'Luckiest Guy', cursive;
+    opacity: 100%;
+}
+
+.link:hover {
+    color: gold;
+    transition: 0.4s;
+    opacity: 130%;
+}
+
+.logo {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    margin-right: 1350px;
+}
+
+.logoTitle {
+    position: fixed;
+    color: black;
+    font-family: 'Luckiest Guy', cursive;
+    margin-right: 1220px;
+    opacity: 100%;
+}

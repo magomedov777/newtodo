@@ -3,7 +3,7 @@ import { v1 } from "uuid";
 import "./App.css";
 import Todolist, { FilterValueType } from "./Todolist";
 import { AddItemForm } from "./AddItemForm";
-import { relative } from "path";
+import { Header } from "./Header";
 
 type TodolistsType = {
   id: string
@@ -75,11 +75,16 @@ const App: () => JSX.Element = () => {
 
   return (
     <div className="App">
-      <div style={{ position: 'absolute', display: 'block', top: '600px', left: '700px' }}>
+      <Header />
+      <div style={{
+        position: 'absolute',
+        display: 'block',
+        top: '630px',
+        left: '700px'
+      }}>
         <b style={{
           fontFamily: 'Luckiest Guy',
-          fontSize: '20px',
-          boxShadow: '4px 4px 4px 4px black',
+          fontSize: '15px',
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
@@ -87,7 +92,7 @@ const App: () => JSX.Element = () => {
         }}>create new list</b>
         <span><AddItemForm callBack={addTodolist} /></span>
       </div>
-      {/* <AddItemForm callBack={addTodolist} /> */}
+
       {
         todolists.map(tl => {
           let tasksForTodolist = tasks[tl.id]

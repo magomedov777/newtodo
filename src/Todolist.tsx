@@ -44,10 +44,10 @@ const Todolist = (props: PropsType) => {
   };
 
   return (
+    
     <div className={s.list}>
       <button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button>
       <h1 className={s.mainTitle}>
-        {/* {props.title} */}
         <EditableSpan callBack={updateTodolistTitleHandler} oldTitle={props.title} />
       </h1>
       <AddItemForm callBack={addTaskHandler} />
