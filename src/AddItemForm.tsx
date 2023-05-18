@@ -23,7 +23,7 @@ export const AddItemForm = (props: PropsType) => {
         <div>
             <input
                 className={s.inputAddTask}
-                placeholder={'Tap to create new skill!'}
+                placeholder={'Create new skill'}
                 onChange={addInputTask}
                 value={title}
                 onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {

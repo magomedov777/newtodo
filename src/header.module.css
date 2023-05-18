@@ -23,7 +23,6 @@
 
 .item {
     margin-left: 10px;
-    box-shadow: 1px 1px black;
     opacity: 130%;
 }
 
@@ -54,4 +53,13 @@
     font-family: 'Luckiest Guy', cursive;
     margin-right: 1220px;
     opacity: 100%;
+}
+
+.createTodo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-right: 1000px;
+    margin-top: -12px;
 }

@@ -75,25 +75,8 @@ const App: () => JSX.Element = () => {
 
   return (
     <div className="App">
-      <Header />
-      <div style={{
-        position: 'absolute',
-        display: 'block',
-        top: '630px',
-        left: '700px'
-      }}>
-        <b style={{
-          fontFamily: 'Luckiest Guy',
-          fontSize: '15px',
-          position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
-          color: 'gold'
-        }}>create new list</b>
-        <span><AddItemForm callBack={addTodolist} /></span>
-      </div>
-
-      {
+      <Header callBack={addTodolist}/>
+           {
         todolists.map(tl => {
           let tasksForTodolist = tasks[tl.id]
           if (tl.filter === 'active') {
