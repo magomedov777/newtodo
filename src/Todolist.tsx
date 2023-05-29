@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState, KeyboardEvent } from "react";
 import s from './todolist.module.css';
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
+import { SuperCheckbox } from "./SuperCheckbox";
 
 type PropsType = {
   id: string
@@ -43,8 +44,12 @@ const Todolist = (props: PropsType) => {
     props.updateTask(props.id, tID, updateTitle)
   };
 
+  const onChangeCheckboxHandler = (tID: string, newIsDone: boolean) => {
+    props.checkboxState(props.id, tID, newIsDone)
+  };
+
   return (
-    
+
     <div className={s.list}>
       <button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button>
       <h1 className={s.mainTitle}>
@@ -53,10 +58,6 @@ const Todolist = (props: PropsType) => {
       <AddItemForm callBack={addTaskHandler} />
       <ul>
         {props.tasks.map((t) => {
-          const onChangeCheckboxHandler = (event: ChangeEvent<HTMLInputElement>) => {
-            props.checkboxState(props.todolistID, t.id, event.currentTarget.checked)
-          };
-
           return (
             <li key={t.id}>  {/*className={el.isDone ? s.isDone : ''} for opacity tasks*/}
               <button
@@ -65,11 +66,7 @@ const Todolist = (props: PropsType) => {
               <span className={s.taskClass}>
                 <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title} />
               </span>
-              <input
-                type="checkbox"
-                checked={t.isDone}
-                onChange={onChangeCheckboxHandler}
-              />
+              <SuperCheckbox callBack={(newIsDone) => onChangeCheckboxHandler(t.id, newIsDone)} isDone={t.isDone} />
             </li>
           );
         })}
