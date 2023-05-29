@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { v1 } from "uuid";
 import "./App.css";
-import Todolist, { FilterValueType } from "./Todolist";
+import Todolist, { FilterValueType, TaskType } from "./Todolist";
 import { AddItemForm } from "./AddItemForm";
 import { Header } from "./Header";
 
-type TodolistsType = {
+
+export type TodolistsType = {
   id: string
   title: string
   filter: FilterValueType
+}
+
+export type TasksStateType = {
+  [key: string]: Array<TaskType>
 }
 
 const App: () => JSX.Element = () => {

@@ -18,7 +18,7 @@ type PropsType = {
   updateTodolistTitle: (todolistID: string, updateTitle: string) => void
 };
 
-type TaskType = {
+export type TaskType = {
   id: string;
   title: string;
   isDone: boolean;
