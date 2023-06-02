@@ -12,11 +12,7 @@ import { removeTodolistAC } from "./state/todolists-reducer";
 import { addTodolistAC } from "./state/todolists-reducer";
 
 
-export type TodolistsType = {
-  id: string
-  title: string
-  filter: FilterValueType
-}
+
 
 export type TasksStateType = {
   [key: string]: Array<TaskType>
