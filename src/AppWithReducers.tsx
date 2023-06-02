@@ -55,7 +55,9 @@ const AppWithReducers: () => JSX.Element = () => {
     dispatchToTodolists(changeTodolistTitleAC(todolistID, updateTitle))
   };
 
-  
+  const deleteTasks = (todolistID: string, tID: string) => {
+    dispatchToTasks(removeTaskAC(tID, todolistID))
+  };
 
   const addTask = (todolistID: string, title: string) => {
     dispatchToTasks(addTaskAC(title, todolistID))
