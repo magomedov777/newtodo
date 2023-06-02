@@ -18,7 +18,9 @@ export type TodolistsType = {
   filter: FilterValueType
 }
 
-
+export type TasksStateType = {
+  [key: string]: Array<TaskType>
+}
 
 const AppWithReducers: () => JSX.Element = () => {
   let todolistID1 = v1()
