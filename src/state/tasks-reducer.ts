@@ -10,7 +10,9 @@ export type changeTaskStatusActionType = ReturnType<typeof changeTaskStatusAC>
 
 export type changeTaskTitleActionType = ReturnType<typeof changeTaskTitleAC>
 
-export const TasksReducer = (state: TasksStateType, action: ActionsType) => {
+const initialState: TasksStateType = {}
+
+export const TasksReducer = (state = initialState, action: ActionsType) => {
   switch (action.type) {
     case 'REMOVE-TASK':
       return {
@@ -71,4 +73,4 @@ export const changeTaskStatusAC = (taskId: string, isDone: boolean, todolistId: 
 
 export const changeTaskTitleAC = (taskId: string, newTtitle: string, todolistId: string) => {
     return {type: 'CHANGE-TASK-TITLE', taskId, newTtitle, todolistId} as const
-}
+};

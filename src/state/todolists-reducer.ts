@@ -3,7 +3,9 @@ import { TodolistsType } from "../App"
 import { FilterValueType } from "../Todolist";
 
 
-export const TodolistsReducer = (state: TodolistsType[], action: any): TodolistsType[] => {
+const initialState: TodolistsType[] = []
+
+export const TodolistsReducer = (state = initialState, action: ActionsType): TodolistsType[] => {
     switch(action.type) {
         case 'REMOVE-TODOLIST': {
             return state.filter(el => el.id !== action.payload.todolistId)
@@ -21,9 +23,9 @@ export const TodolistsReducer = (state: TodolistsType[], action: any): Todolists
         }
         default: return state
     }
-}
+};
 
-type ActionsType = removeTodolistACType 
+export type ActionsType = removeTodolistACType 
 | addTodolistACType 
 | changeTodolistTitleACType 
 | changeTodolistFilterACType
@@ -37,7 +39,7 @@ export const removeTodolistAC = (todolistId: string) => {
             todolistId
         }
     }as const
-}
+};
 
 export type addTodolistACType = ReturnType<typeof addTodolistAC>
 
@@ -45,13 +47,13 @@ export const addTodolistAC = (newTodolistTitle: string) => {
     return {
         type: 'ADD-TODOLIST',
         payload: {
-            todolistId: v1(), //exp
+            todolistId: v1(), 
             newTodolistTitle
         }
     }as const
-}
+};
 
-type changeTodolistTitleACType = ReturnType<typeof changeTodolistTitleAC>
+export type changeTodolistTitleACType = ReturnType<typeof changeTodolistTitleAC>
 
 export const changeTodolistTitleAC = (todolistId: string, newTodolistTitle: string) => {
     return {
@@ -61,9 +63,9 @@ export const changeTodolistTitleAC = (todolistId: string, newTodolistTitle: stri
             newTodolistTitle
         }
     }as const
-}
+};
 
-type changeTodolistFilterACType = ReturnType<typeof changeTodolistFilterAC>
+export type changeTodolistFilterACType = ReturnType<typeof changeTodolistFilterAC>
 
 export const changeTodolistFilterAC = (todolistId: string, newFilter: FilterValueType) => {
     return {
@@ -73,4 +75,4 @@ export const changeTodolistFilterAC = (todolistId: string, newFilter: FilterValu
             newFilter
         }
     }as const
-}
+};
