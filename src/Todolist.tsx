@@ -1,10 +1,10 @@
-import React, { ChangeEvent, useState, KeyboardEvent } from "react";
+import React, { ChangeEvent, useState, KeyboardEvent, FC, memo } from "react";
 import s from './todolist.module.css';
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
 import { SuperCheckbox } from "./SuperCheckbox";
 
-type PropsType = {
+type Props = {
   id: string
   title: string;
   tasks: TaskType[];
@@ -27,25 +27,26 @@ export type TaskType = {
 
 export type FilterValueType = 'all' | 'active' | 'completed'
 
-const Todolist = (props: PropsType) => {
+const Todolist: FC<Props> = memo(({ id, title, tasks, filter, deleteTasks, addTask, checkboxState,
+  changeFilter, removeTodo, updateTask, updateTodolistTitle }) => {
   const removeTodoHandler = () => {
-    props.removeTodo(props.todolistID)
+    removeTodo(id)
   };
 
   const addTaskHandler = (newTitle: string) => {
-    props.addTask(props.id, newTitle)
+    addTask(id, newTitle)
   };
 
   const updateTodolistTitleHandler = (updateTitle: string) => {
-    props.updateTodolistTitle(props.todolistID, updateTitle)
+    updateTodolistTitle(id, updateTitle)
   };
 
   const updateTaskHandler = (tID: string, updateTitle: string) => {
-    props.updateTask(props.id, tID, updateTitle)
+    updateTask(id, tID, updateTitle)
   };
 
   const onChangeCheckboxHandler = (tID: string, newIsDone: boolean) => {
-    props.checkboxState(props.id, tID, newIsDone)
+    checkboxState(id, tID, newIsDone)
   };
 
   return (
@@ -53,16 +54,16 @@ const Todolist = (props: PropsType) => {
     <div className={s.list}>
       <button onClick={removeTodoHandler} className={s.removeTodoBtn}>X</button>
       <h1 className={s.mainTitle}>
-        <EditableSpan callBack={updateTodolistTitleHandler} oldTitle={props.title} />
+        <EditableSpan callBack={updateTodolistTitleHandler} oldTitle={title} />
       </h1>
       <AddItemForm callBack={addTaskHandler} />
       <ul>
-        {props.tasks.map((t) => {
+        {tasks.map((t) => {
           return (
             <li key={t.id}>  {/*className={el.isDone ? s.isDone : ''} for opacity tasks*/}
               <button
                 className={s.deleteBtn}
-                onClick={() => props.deleteTasks(props.todolistID, t.id)}>x</button>
+                onClick={() => deleteTasks(id, t.id)}>x</button>
               <span className={s.taskClass}>
                 <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title} />
               </span>
@@ -71,11 +72,11 @@ const Todolist = (props: PropsType) => {
           );
         })}
       </ul>
-      <button className={s.btnTask} onClick={() => props.changeFilter(props.todolistID, 'all')}>all</button>
-      <button className={s.btnTask} onClick={() => props.changeFilter(props.todolistID, 'active')}>active</button>
-      <button className={s.btnTask} onClick={() => props.changeFilter(props.todolistID, 'completed')}>completed</button>
+      <button className={s.btnTask} onClick={() => changeFilter(id, 'all')}>all</button>
+      <button className={s.btnTask} onClick={() => changeFilter(id, 'active')}>active</button>
+      <button className={s.btnTask} onClick={() => changeFilter(id, 'completed')}>completed</button>
     </div>
   );
-};
+})
 
 export default Todolist;
