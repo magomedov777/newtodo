@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, memo, useState } from "react";
 import { v1 } from "uuid";
 import "./App.css";
 import Todolist, { FilterValueType, TaskType } from "./Todolist";
@@ -16,7 +16,7 @@ export type TasksStateType = {
   [key: string]: Array<TaskType>
 }
 
-const App: () => JSX.Element = () => {
+const App: FC = memo(() => {
   let todolistID1 = v1()
   let todolistID2 = v1()
 
@@ -80,8 +80,8 @@ const App: () => JSX.Element = () => {
 
   return (
     <div className="App">
-      <Header callBack={addTodolist}/>
-           {
+      <Header callBack={addTodolist} />
+      {
         todolists.map(tl => {
           let tasksForTodolist = tasks[tl.id]
           if (tl.filter === 'active') {
@@ -111,6 +111,6 @@ const App: () => JSX.Element = () => {
       }
     </div >
   );
-};
+})
 
 export default App;

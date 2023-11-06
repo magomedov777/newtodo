@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, KeyboardEvent } from "react";
+import React, { ChangeEvent, useState, KeyboardEvent, memo, useCallback } from "react";
 import s from './todolist.module.css';
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
